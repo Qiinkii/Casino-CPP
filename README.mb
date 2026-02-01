@@ -1,0 +1,19 @@
+# 🎰 Console Casino "All or Nothing"
+
+A simple C++ console game simulating a slot machine.
+
+## 🎮 How to Play
+1. You start with **$1000**.
+2. Enter your bet amount.
+3. The machine generates 3 random numbers (2-7).
+4. Win combinations:
+   - **7-7-7** -> Jackpot (x10)
+   - **Three of a kind** (e.g., 5-5-5) -> Big Win (x5)
+   - **Any pair** (e.g., 2-2-7) -> Small Win (x2)
+
+## 🛠️ Tech Stack
+- **Language:** C++
+- **Features:**
+  - `std::mt19937` for high-quality random generation (instead of `rand()`).
+  - Input validation (protects against non-numeric input).
+  - Proper memory management with loops and conditionals.
