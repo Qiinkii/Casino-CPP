@@ -54,6 +54,7 @@ void casino() {
     do {
         int rate = howRate(balance);
         balance -= rate;
+        bool secondExit = true;
 
         slot.first = randomNumber();
         slot.second = randomNumber();
@@ -85,25 +86,30 @@ void casino() {
             break;
         }
 
-        std::cout << "Do you want to continue? (y - Yes. n - No): ";
-        char response;
-        std::cin >> response;
-        
-        std::cin.ignore(32767, '\n');
-        
-        switch (response) {
-            case 'Y':
-            case 'y':
-                std::cout << "Wonderful!" << std::endl;
-                break;
-            case 'N':
-            case 'n':
-                std::cout << "Ok, good luck." << std::endl;
-                exit = false;
-                break;
-            default:
-                std::cout << "Enter only \"y\" or \"n\".\n";
-                break;
+        while (secondExit) {
+
+            std::cout << "Do you want to continue? (y - Yes. n - No): ";
+            char response;
+            std::cin >> response;
+            
+            std::cin.ignore(32767, '\n');
+            
+            switch (response) {
+                case 'Y':
+                case 'y':
+                    std::cout << "Wonderful!" << std::endl;
+                    secondExit = false;
+                    break;
+                case 'N':
+                case 'n':
+                    std::cout << "Ok, good luck." << std::endl;
+                    exit = false;
+                    secondExit = false;
+                    break;
+                default:
+                    std::cout << "Enter only \"y\" or \"n\".\n";
+            }
+                
         }
 
         std::cout << "Your balance: " << balance << std::endl;
